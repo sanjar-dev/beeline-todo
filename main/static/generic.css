@@ -13,6 +13,16 @@ div {
 div h3, div p {
     margin: 0;
 }
+div img {
+    width: 26px;
+    height: 26px;
+    padding: 6px;
+    margin-top: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    filter: brightness(-100%);
+    box-shadow: 0 0 6px black;
+}
 .prompt {
     width: 50%;
     display: flex;

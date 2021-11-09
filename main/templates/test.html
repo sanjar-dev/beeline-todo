@@ -32,7 +32,7 @@
                     <div class="todo-item-header">
                         <label class="checkbox-container">
                             <a href="{% url 'toggle-todo' todo.id %}">
-                                <input type="checkbox">
+                                <input type="checkbox" {% if todo.is_done %}checked{% endif %}>
                                 <span class="checkmark"></span>
                             </a>
                             </label>

@@ -30,6 +30,14 @@
             <p>Номер телефона: {{ meeting.phone_number }}</p>
             <p>Важная: {% if meeting.is_favorite %}да{% else %}нет{% endif %}</p>
             <p>Прошла: {% if meeting.is_done %}да{% else %}нет{% endif %}</p>
+            <a href="{% url 'mark-meeting' meeting.id %}">
+                {% if meeting.is_favorite %}
+                    <img src="{% static 'assets/starred.png' %}" alt="Unfavorite">
+                {% else %}
+                    <img src="{% static 'assets/unstarred.png' %}" alt="Favorite">
+                {% endif %}
+            </a>
+            <a href="{% url 'delete-meeting' meeting.id %}"><img src="{% static 'assets/bin.png' %}" alt="Delete"></a>
         </div>
     {% endfor %}
     <script>

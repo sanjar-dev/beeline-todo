@@ -41,10 +41,23 @@ def add_meeting(req):
     meeting = ToMeet(
         persone=form["meeting-persone"],
         phone_number=form["meeting-phonenumber"],
-        date_meeting=form["meeting-date"],
-        is_done=form["meeting-done"],
-        is_favorite=form["meeting-favorite"],
+        date_meeting=form["meeting-date"]
     )
+    if ("meeting-done" in form):
+        meeting.is_done = True
+    if ("meeting-favorite" in form):
+        meeting.is_favorite = True
+    meeting.save()
+    return redirect(meetings)
+
+def delete_meeting(req, id):
+    meeting = ToMeet.objects.get(id=id)
+    meeting.delete()
+    return redirect(meetings)
+
+def mark_meeting(req, id):
+    meeting = ToMeet.objects.get(id=id)
+    meeting.is_favorite = not(meeting.is_favorite)
     meeting.save()
     return redirect(meetings)
 
