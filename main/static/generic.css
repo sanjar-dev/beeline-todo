@@ -1,0 +1,20 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1 {
+    text-align: center;
+}
+div {
+    padding: 12px 24px;
+    background-color: lightgray;
+    border-radius: 6px;
+    margin: 12px;
+}
+div h3, div p {
+    margin: 0;
+}
+.prompt {
+    width: 50%;
+    display: flex;
+    margin: 0 auto;
+}

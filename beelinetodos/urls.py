@@ -23,7 +23,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name="home"),
     path('test/', test, name="test"),
+    path('add-todo/', add_todo, name="add-todo"),
     path('meetings/', meetings, name="meetings"),
-    path('add-todo', add_todo, name="add-todo"),
+    path('add-meeting/', add_meeting, name="add-meeting"),
+    path('habits/', habits, name="habits"),
+    path('add_habit/', add_habit, name="add-habit"),
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

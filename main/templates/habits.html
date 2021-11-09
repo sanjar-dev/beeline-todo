@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habits</title>
+    <link rel="stylesheet" href="{% static 'generic.css' %}">
+</head>
+<body>
+    <h1>Новая привычка:</h1>
+    <div class="prompt">
+        <form action="{% url 'add-habit' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="habit-description" placeholder="Описание привычки..."><br>
+            Важная?: <input type="checkbox" name="habit-is-important"><br>
+            Сделана на сегодня?: <input type="checkbox" name="habit-is-done-today"><br>
+            <br>
+            <button>Отправить</button>
+        </form>
+    </div>
+    <h1>Мои привычки:</h1>
+    {% for habit in habits_list %}
+        <div>
+            <h3>Привычка №{{ habit.id }}</h3>
+            <p><strong>Описание: </strong>{{ habit.habit_description }}</p>
+            <p><strong>Важная?: </strong>{% if habit.is_important %}да{% else %}нет{% endif %}</p>
+            <p><strong>Сделано на сегодня?: </strong>{% if habit.is_done_today %}да{% else %}нет{% endif %}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>

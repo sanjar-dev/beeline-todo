@@ -30,3 +30,8 @@ class MonthGoal(models.Model):
     ])
 
     difficulty = models.CharField(max_length=6, choices=difficulty_choices, default=dif_normal)
+
+class Habit(models.Model):
+    is_done_today = models.BooleanField(default=False)
+    is_important = models.BooleanField(default=False)
+    habit_description = models.TextField(max_length=200)
