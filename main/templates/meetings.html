@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meetings</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        div {
+            padding: 12px 24px;
+            background-color: lightgray;
+            border-radius: 6px;
+            margin: 12px;
+        }
+        div h3, div p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Список встреч:</h1>
+    {% for meeting in tomeet_list %}
+        <div>
+            <h3>Идентификатор встречи: {{ meeting.id }}</h3>
+            <p>Встреча с <i>{{ meeting.persone }}</i> {{ meeting.date_meeting }}</p>
+            <p>Номер телефона: {{ meeting.phone_number }}</p>
+            <p>Важная: {% if meeting.is_favorite %}да{% else %}нет{% endif %}</p>
+            <p>Прошла: {% if meeting.is_done %}да{% else %}нет{% endif %}</p>
+        </div>
+    {% endfor %}
+</body>
+</html>
