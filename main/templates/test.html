@@ -20,7 +20,7 @@
 
         <div class="todo-items">
             {% for todo in todo_list %}
-                <div class="todo-item {% if todo.is_done %} done {% elif todo.is_favorite %} marked {% endif %} ">
+                <div class="todo-item {% if todo.is_done %}done{% elif todo.is_favorite %}marked{% endif %}">
                     <div class="todo-item-header">
                         <label class="checkbox-container">
                             <input type="checkbox">
@@ -31,7 +31,12 @@
                     <div class="todo-item-footer">
                         <p>{{ todo.date_created }}</p>
                         <div class="todo-item-actions">
-                            <img src="{% static 'assets/star.png' %}" alt="Favorite">
+                            {% if todo.is_favorite %}
+                                <img src="{% static 'assets/starred.png' %}" alt="Favorite">
+                            {% else %}
+                                <img src="{% static 'assets/unstarred.png' %}" alt="Favorite">
+                            {% endif %}
+
                             <img src="{% static 'assets/bin.png' %}" alt="Delete">
                         </div>
                     </div>

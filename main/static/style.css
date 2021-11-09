@@ -106,9 +106,6 @@ section {
 .todo-item p, .todo-item span {
     color: var(--todo-card-foreground);
 }
-.todo-item img {
-    filter: invert(100);
-}
 
 .todo-item.done {
     background-color: var(--todo-card-background-done);
