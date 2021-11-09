@@ -113,6 +113,7 @@ section {
 .todo-item.done {
     background-color: var(--todo-card-background-done);
     border-color: var(--todo-card-foreground-done);
+    text-decoration: line-through var(--todo-card-foreground-done);
 }
 .todo-item.done h4, .todo-item.done p, .todo-item.done span {
     color: var(--todo-card-foreground-done);
