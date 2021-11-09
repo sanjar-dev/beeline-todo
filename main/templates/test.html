@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Список дел - My todos</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="{% static 'checkbox.css' %}">
 </head>
@@ -28,23 +28,26 @@
 
         <div class="todo-items">
             {% for todo in todo_list %}
-                <div class="todo-item {% if todo.is_done %}done{% elif todo.is_favorite %}marked{% endif %}">
+                <div class="todo-item {% if todo.is_done %}done {% elif todo.is_favorite %}marked {% endif %}">
                     <div class="todo-item-header">
                         <label class="checkbox-container">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
+                            <a href="{% url 'toggle-todo' todo.id %}">
+                                <input type="checkbox">
+                                <span class="checkmark"></span>
+                            </a>
+                            </label>
                         <h4>{{ todo.text }}</h4>
                     </div>
                     <div class="todo-item-footer">
                         <p>{{ todo.date_created }}</p>
                         <div class="todo-item-actions">
-                            {% if todo.is_favorite %}
-                                <img src="{% static 'assets/starred.png' %}" alt="Favorite">
-                            {% else %}
-                                <img src="{% static 'assets/unstarred.png' %}" alt="Favorite">
-                            {% endif %}
-
+                            <a href="{% url 'mark-todo' todo.id %}">
+                                {% if todo.is_favorite %}
+                                    <img src="{% static 'assets/starred.png' %}" alt="Unfavorite">
+                                {% else %}
+                                    <img src="{% static 'assets/unstarred.png' %}" alt="Favorite">
+                                {% endif %}
+                            </a>
                             <a href="{% url 'delete-todo' todo.id %}"><img src="{% static 'assets/bin.png' %}" alt="Delete"></a>
                         </div>
                     </div>

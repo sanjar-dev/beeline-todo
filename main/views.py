@@ -20,6 +20,18 @@ def delete_todo(req, id):
     todo.delete()
     return redirect(test)
 
+def mark_todo(req, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_favorite = not(todo.is_favorite)
+    todo.save()
+    return redirect(test)
+
+def toggle_todo(req, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_done = not(todo.is_done)
+    todo.save()
+    return redirect(test)
+
 def meetings(req):
     tomeet_list = ToMeet.objects.all()
     return render(req, "meetings.html", { "tomeet_list": tomeet_list })
