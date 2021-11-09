@@ -43,6 +43,11 @@ section {
     align-items: center;
 }
 
+form {
+    width: 100%;
+    display: inline-block;
+}
+
 .todo-create-container {
     display: flex;
     justify-content: space-between;
