@@ -45,7 +45,7 @@
                                 <img src="{% static 'assets/unstarred.png' %}" alt="Favorite">
                             {% endif %}
 
-                            <img src="{% static 'assets/bin.png' %}" alt="Delete">
+                            <a href="{% url 'delete-todo' todo.id %}"><img src="{% static 'assets/bin.png' %}" alt="Delete"></a>
                         </div>
                     </div>
                 </div>

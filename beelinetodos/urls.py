@@ -24,6 +24,7 @@ urlpatterns = [
     path('', home, name="home"),
     path('test/', test, name="test"),
     path('add-todo/', add_todo, name="add-todo"),
+    path('delete-todo/<id>/', delete_todo, name="delete-todo"),
     path('meetings/', meetings, name="meetings"),
     path('add-meeting/', add_meeting, name="add-meeting"),
     path('habits/', habits, name="habits"),
